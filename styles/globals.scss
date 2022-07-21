@@ -1,0 +1,47 @@
+@import 'vars.scss';
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+@font-face {
+	font-family: Adlery;
+	src: url('../public/adlery-pro.swash.ttf');
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+	background-color: $bg;
+	overflow-y: overlay;
+
+	@media screen and (max-width: $md) {
+		padding-bottom: 2rem;
+	}
+}
+
+* {
+	user-select: none;
+	color: $secondary;
+}
+
+a {
+	text-decoration: none;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #3d445b;
+}

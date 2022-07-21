@@ -1,0 +1,33 @@
+{
+  "name": "kiraak",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@lottiefiles/lottie-player": "^1.5.7",
+    "@monaco-editor/react": "^4.4.5",
+    "@mui/icons-material": "^5.8.4",
+    "monaco-editor": "^0.33.0",
+    "next": "12.2.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-split": "^2.0.14",
+    "sass": "^1.53.0",
+    "split.js": "^1.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "18.0.6",
+    "@types/react": "18.0.15",
+    "@types/react-dom": "18.0.6",
+    "eslint": "8.20.0",
+    "eslint-config-next": "12.2.2",
+    "typescript": "4.7.4"
+  }
+}

@@ -1,0 +1,99 @@
+@import 'vars.scss';
+
+#nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 4rem;
+    padding: 0 5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media screen and (max-width: $md) {
+        display: none;
+    }
+
+    #logo {
+        font-family: Adlery;
+        color: $operator;
+        font-size: 24px;
+        margin: 0 2rem;
+    }
+
+    .link {
+        display: inline-flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 1rem;
+        font-size: 16px;
+        
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &:hover:not(.active) {
+            a {
+                color: $secondary_light;
+
+                svg {
+                    fill: $secondary_light;
+                }
+            }
+        }
+
+        &.active {
+            a {
+                color: $operator;
+
+                svg {
+                    fill: $operator;
+                }
+            }
+        }
+    }
+}
+
+#bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 3.5rem;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    @media screen and (min-width: $md) {
+        display: none;
+    }
+
+    a {
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+
+        &.active {
+            color: $operator;
+            svg {
+                fill: $operator;
+            }
+        }
+    }
+}
+
+
+#nav, #bottom {
+    background-color: rgba($fg, 0.3);
+    backdrop-filter: blur(20px);
+}
