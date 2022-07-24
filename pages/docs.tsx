@@ -18,7 +18,7 @@ const DocSection = (props: DocProps) => {
     useEffect(() => {
         if (props.selected)
             props.set(props.children)
-    }, [props])
+    }, [])
 
     return (
         <>

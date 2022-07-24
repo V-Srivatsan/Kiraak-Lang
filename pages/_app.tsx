@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 
 import Nav from '../components/Navbar'
+import Footer from '../components/Footer'
 import '../styles/globals.scss'
 
 
@@ -18,7 +19,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 			</Head>
 
 			<Nav />
-			<Component {...pageProps} />
+			<main>
+				<Component {...pageProps} />
+			</main>
+			<Footer />
 		</>
 	)
 }
