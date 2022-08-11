@@ -3,6 +3,8 @@ import { useEffect, useState, useRef } from 'react'
 import Head from "next/head"
 import Split from 'react-split'
 
+import { Autorenew, PlayArrow } from "@mui/icons-material"
+
 import setup from "../conf/editor-conf"
 import styles from '../styles/Editor.module.scss'
 
@@ -11,9 +13,49 @@ const Editor = () => {
     const monaco = useMonaco()
     const ref = useRef(null)
 
+    const runCode = ((code: string) => {
+        const inp = document.getElementById(styles.input)
+        const output = document.getElementById(styles.output)
+        const btn = document.getElementById(styles.run)
+
+        const req: {[k: string]: string} = {}
+        req['code'] = code
+
+        const input = (inp != null && inp.innerText.length > 0 ? inp.innerText : null)
+        if (input != null)
+            req['input'] = input
+        
+        
+        btn?.classList.add(styles.running)
+
+        try {
+            fetch('http://20.193.132.48/?' + new URLSearchParams(req))
+                .then(data => data.json())
+                .then(res => {
+                    if (output != null) {
+                        if (res.stderr.length > 0) {
+                            output.classList.add(styles.error)
+                            output.innerText = res.stderr
+                        }
+                
+                        else {
+                            output.classList.remove(styles.error)
+                            output.innerText = res.stdout
+                        }
+                    }
+    
+                btn?.classList.remove(styles.running)
+                })
+        } catch (e) {
+            console.log(e)
+            alert('Oops! Something went wrong! Please try again later!')
+        }
+
+    })
+
     useEffect(() => {
         if (monaco) {
-            setup(monaco, styles.editor)
+            setup(monaco, styles.editor, runCode)
         }
     }, [monaco])
 
@@ -29,7 +71,6 @@ const Editor = () => {
             setHeight(window.innerHeight)
         })
 
-
         import("@lottiefiles/lottie-player")
     }, [])
 
@@ -43,10 +84,15 @@ const Editor = () => {
                 sizes={[60, 40]} id={styles.container}>
                 <div>
                     <div className={styles.tab}>Code Editor</div>
-                    <div className={styles.tab} id={styles.run}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 96 112" fill="none">
-                            <path d="M-3.8147e-06 0.574387L96 56L-2.09167e-06 111.426L-3.8147e-06 0.574387Z" fill="#D9D9D9"/>
-                        </svg>
+                    <div className={styles.tab} id={styles.run} onClick={() => {
+                        const code = monaco?.editor.getModels()[0].getValue()
+                        if (code === undefined)
+                            runCode('')
+                        else
+                            runCode(code)
+                    }}>
+                        <PlayArrow />
+                        <Autorenew />
 
                         &nbsp; Run (F9)
                     </div>
@@ -63,7 +109,7 @@ const Editor = () => {
                         </div>
                         <div>
                             <div className={styles.tab}>Output</div>
-                            <div id={styles.output}></div>
+                            <pre id={styles.output} className={styles.error}></pre>
                         </div>
                     </Split>
                 </div>

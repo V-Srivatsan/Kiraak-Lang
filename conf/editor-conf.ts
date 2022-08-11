@@ -5,18 +5,19 @@ import KiraakTheme from './theme'
 
 
 const starterCode = `
-x boletho 10
-y banake rakh
+n me input aayega
+sum boletoh 0
 
-agar x 10 ^ 2 jitta hai tho abse x boletho 20 nahi tho abse y boletho 10
+ab i ko 1 se n tak chalate hue {
+    num me input aayega
+    sum boletoh sum + num
+}
 
-z boletho 10.254
-
-
+screen pe sum dikha
 `
 
 
-const setup = (monaco: Monaco, editorId: string) => {
+const setup = (monaco: Monaco, editorId: string, run: Function) => {
     monaco.editor.defineTheme('Kiraak', KiraakTheme)
 
     monaco.languages.register({ id: 'Kiraak' });
@@ -26,7 +27,31 @@ const setup = (monaco: Monaco, editorId: string) => {
         comments: {
             lineComment: "=>",
             blockComment: ["==>", "<=="]
-        }
+        },
+
+        surroundingPairs: [
+            { open: '{', close: '}' },
+            { open: '(', close: ')' },
+            { open: "'", close: "'" },
+            { open: '"', close: '"' },
+        ],
+
+        autoClosingPairs: [
+            { open: '{', close: '}' },
+            { open: '(', close: ')' },
+            { open: "'", close: "'", notIn: ['string'] },
+            { open: '"', close: '"', notIn: ['string'] },
+        ],
+
+        onEnterRules: [
+            {
+                beforeText: RegExp('{'),
+                afterText: RegExp('}'),
+                action: {
+                    indentAction: 3,
+                }
+            }
+        ]
     })
 
 
@@ -40,13 +65,17 @@ const setup = (monaco: Monaco, editorId: string) => {
         fontLigatures: true,
         fontFamily: 'Fira Code',
         fontSize: 16,
-        padding: { top: 5},
+        padding: { top: 10 },
         value: starterCode,
+        autoIndent: 'brackets',
+        bracketPairColorization: { enabled: true },
     })
 
     editor.addCommand(
         monaco.KeyCode.F9,
-        () => { console.log(editor.getValue()) }
+        () => {
+            run(editor.getValue())
+        }
     )
 }
 

@@ -5,24 +5,22 @@ const KiraakSyntax: languages.IMonarchLanguage = {
     symbols: /[\+\-\*\/\^\%]+/,
 
     keywords: [
-        'banake', 'rakh',
-        'hai',
-        'boletho',
-        'ke', 'baraabar',
-        'se', 'jitta',
-        'chota', 'bada',
-        'ya', 'aur', 'nahi',
-        'agar', 'phir', 'tho',
-        'jabtak', 'tab',
-        'ko', 'tak', 'har', 'baar', 'chodkar', 'chalate', 'hue',
+        'hai', 'aur', 'ya', 'nai', 'toh', 'tak', 'ko',
+        'boletoh', 'abse', 'banake', 'rakh',
+        'agar', 'phir',
+        'jab', 'tab', 'ab', 'har', 'baar', 'chodkar', 'chalate', 'hue',
+        'function', 'lega', 'dega', 'deke', 'chala',
+        'screen', 'pe', 'dikha',
+        'me', 'input', 'number', 'string', 'aayega',
+        'cutle', 'chalde', 'khatam'
     ],
 
     typeKeywords: [
-        'sahi', 'galat'
+        'sahi', 'galat', 'khaali'
     ],
 
     operators: [
-        '+', '-', '*', '/', '^', '%', '//', 'se', 'bada', 'chota'
+        '+', '-', '*', '/', '^', '%', '//', 'se', 'jitta', 'ke', 'baraabar', 'chota', 'bada',
     ],
 
 

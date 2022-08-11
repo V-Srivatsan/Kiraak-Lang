@@ -48,19 +48,52 @@ $margin: 1.5rem;
 
         &#run {
             display: flex;
+            justify-content: center;
+            align-items: center;
             cursor: pointer;
             background: $green_dark;
             float: right;
 
+            svg:nth-child(2) {
+                display: none;
+                animation: rotate 1s ease-in-out infinite forwards;
+
+                @keyframes rotate {
+                    from {
+                        transform: rotateZ(0deg);
+                    }
+
+                    to {
+                        transform: rotateZ(360deg);
+                    }
+                }
+            }
+
             &:hover {
                 background: $green_light;
+            }
+
+            &.running {
+                pointer-events: none;
+                cursor: not-allowed;
+
+                svg:nth-child(1) {
+                    display: none;
+                }
+
+                svg:nth-child(2) {
+                    display: initial;
+                }
             }
         }
     }
     
     #editor, #output, #input {
         background: $fg;
-        height: calc(100% - $margin - $margin - 1rem);
+
+        &:not(#output) {
+            height: calc(100% - $margin - $margin - 1rem);
+        }
         
         &, & > div, & > div > div {
             border-radius: 10px;
@@ -78,9 +111,24 @@ $margin: 1.5rem;
         }
     }
 
-    #input {
+    #input, #output {
         overflow-y: auto;
-        padding: 5px $margin calc($margin - 10px);
+        padding: 10px $margin calc($margin - 10px);
+
+        &#output {
+            padding-top: 10px;
+            padding-bottom: 0;
+            font-family: 'Fira Code';
+            margin: 0;
+
+            height: calc(100% - 10px - $margin - $margin - 1rem);
+
+            &.error {
+                color: red
+            }
+
+            white-space: pre-wrap;
+        }
 
         &:focus-visible {
             outline: 0;
