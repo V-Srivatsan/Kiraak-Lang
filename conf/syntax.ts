@@ -48,12 +48,20 @@ const KiraakSyntax: languages.IMonarchLanguage = {
 
             [/\d+/, 'number'],
             [/\d*\.\d+([eE][\-+]?\d+)?/, 'number'],
+
+            [/"/, { token: 'string', bracket: '@open', next: '@string' }],
+            [/'.*[^\\']'/, 'string'],
         ],
 
         whitespace: [
             [/[ \t\r\n]+/, 'white'],
             [/==>/, 'comment', '@comment'],
             [/=>.*$/, 'comment'],
+        ],
+
+        string: [
+            [/[^\\"]+/,  'string'],
+            [/"/, { token: 'string', bracket: '@close', next: '@pop' } ],
         ],
 
         comment: [

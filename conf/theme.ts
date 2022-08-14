@@ -15,6 +15,8 @@ const KiraakTheme: editor.IStandaloneThemeData = {
         { token: 'operator', foreground: 'e26d4f' },
 
         { token: 'number', foreground: 'ffb056' },
+
+        { token: 'string', foreground: 'c3e56f' }
     ],
 
     colors: {
