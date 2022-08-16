@@ -14,6 +14,7 @@
     "@lottiefiles/lottie-player": "^1.5.7",
     "@monaco-editor/react": "^4.4.5",
     "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.10.0",
     "monaco-editor": "^0.33.0",
     "next": "12.2.2",
     "react": "18.2.0",
