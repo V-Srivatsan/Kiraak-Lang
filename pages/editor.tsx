@@ -29,7 +29,7 @@ const Editor = () => {
         btn?.classList.add(styles.running)
 
         try {
-            fetch('http://20.193.132.48/?' + new URLSearchParams(req))
+            fetch('https://kiraak.ml/?' + new URLSearchParams(req))
                 .then(data => data.json())
                 .then(res => {
                     if (output != null) {
