@@ -1,4 +1,4 @@
-import { Code, GitHub } from '@mui/icons-material'
+import { Code, GitHub, Topic } from '@mui/icons-material'
 import Link from 'next/link'
 import Head from 'next/head'
 
@@ -10,15 +10,15 @@ const Home = () => {
 			<Head><title>Kiraak</title></Head>
 
 			<h1 id={styles.heading}>Kiraak</h1>
-			<div id={styles.caption}>Lorem ipsum dolor sit amet, consectetur adipisicing.</div>
+			<div id={styles.caption}>Miya bhai bolthey aandoh!</div>
 
 			<div id={styles.actions}>
 				<Link href='/editor'>
 					<a><Code /> &nbsp; Playground</a>
 				</Link>
 
-				<a href="https://github.com/V-Vishwanath" target="_blank" rel='noreferrer'>
-					<GitHub /> &nbsp; View Source
+				<a href='https://docs.kiraak.ml/' target="_blank" rel='noreferrer'>
+					<Topic /> &nbsp; Read the Docs
 				</a>
 			</div>
 		</>

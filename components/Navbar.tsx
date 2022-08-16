@@ -18,7 +18,7 @@ const NavLink = ({ url, link, text, icon }: NavProps) => {
     return (
         <div className={styles.link + (link == url ? ` ${styles.active}` : '' )}>
             <Link href={link}>
-                <a>{icon} &nbsp; {text}</a>
+                <a target={link[0] === 'h' ? '_blank' : ''} rel='noreferrer'>{icon} &nbsp; {text}</a>
             </Link>
         </div>
     )
@@ -37,7 +37,7 @@ const Nav = () => {
     
     return (
         <>
-            <nav id={styles.nav}>
+            <nav id={styles.nav} className={url == '/' ? '' : styles.show}>
 				
                 <Link href='/'>
                     <a id={styles.logo}>Kiraak</a>
@@ -46,17 +46,17 @@ const Nav = () => {
                 <div>
                     <NavLink url={url} icon={<Home />} link='/' text='Home' />
                     <NavLink url={url} icon={<Code />} link='/editor' text='Playground' />
-                    <NavLink url={url} icon={<Topic />} link='/docs' text='Docs' />
+                    <NavLink url={url} icon={<Topic />} link='https://docs.kiraak.ml/' text='Docs' />
                 </div>
 
             </nav>
 
-            <nav id={styles.bottom}>
+            <nav id={styles.bottom} className={url == '/' ? '' : styles.show}>
                 <Link href='/'>
                     <a className={ url == '/' ? styles.active : '' }><Home /> &nbsp; Home</a>
                 </Link>
                 <Link href='/docs'>
-                    <a className={ url == '/docs' ? styles.active : '' }><Topic /> &nbsp; Docs</a>
+                    <a className={ url == 'https://docs.kiraak.ml/' ? styles.active : '' } target='_blank' rel='noreferrer'><Topic /> &nbsp; Docs</a>
                 </Link>
             </nav>
         </>

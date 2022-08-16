@@ -3,7 +3,6 @@
 #heading {
     margin: 0;
     padding-top: 15vh;
-    padding-bottom: 2.5vh;
     font-size: 25vh;
     text-align: center;
     font-family: Adlery;
@@ -16,7 +15,11 @@
 
 #caption {
     text-align: center;
-    font-size: 22px;
+    font-size: 20px;
+    
+    @media screen and (min-width: $md) {
+        font-size: 30px;
+    }
 }
 
 #actions {
@@ -40,14 +43,14 @@
         margin: 1.5rem;
         
         &:nth-child(1) {
-            background: #fe5733;
-            color: $secondary_light;
+            background: $green_light;
+            color: #fefefe;
             svg {
-                fill: $secondary_light;
+                fill: #fefefe;
             }
             
             &:hover {
-                background: rgba(#fe5733, 0.7);
+                background: rgba($green_light, 0.8);
                 color: white;
                 svg {
                     fill: white;

@@ -11,8 +11,9 @@ const KiraakSyntax: languages.IMonarchLanguage = {
         'jab', 'tab', 'ab', 'har', 'baar', 'chodkar', 'chalate', 'hue',
         'function', 'lega', 'dega', 'deke', 'chala',
         'screen', 'pe', 'dikha',
-        'me', 'input', 'number', 'string', 'aayega',
-        'cutle', 'chalde', 'khatam'
+        'me', 'input', 'number', 'string', 'aata',
+        'cutle', 'chalde', 'khatam',
+        'collection', 'jisme', 'ka', 'size', 'daal', 'uda', 'de', 'sab', 'copy',
     ],
 
     typeKeywords: [

@@ -105,7 +105,14 @@ const Editor = () => {
                         sizes={[50, 50]} className={styles.split}>
                         <div>
                             <div className={styles.tab}>Input</div>
-                            <div contentEditable id={styles.input}></div>
+                            <div contentEditable id={styles.input}>
+                                5
+                                <div>1</div>
+                                <div>2</div>
+                                <div>3</div>
+                                <div>4</div>
+                                <div>5</div>
+                            </div>
                         </div>
                         <div>
                             <div className={styles.tab}>Output</div>

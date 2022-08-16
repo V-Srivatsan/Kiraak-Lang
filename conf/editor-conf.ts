@@ -5,15 +5,48 @@ import KiraakTheme from './theme'
 
 
 const starterCode = `
-n me input aayega
-sum boletoh 0
+==> 
+addArr function gives the sum of an array.
+mulArr function gives the product of an array.
+<==
 
-ab i ko 1 se n tak chalate hue {
-    num me input aayega
-    sum boletoh sum + num
+addArr function boletoh arr lega aur {
+    sum boletoh 0
+    ab i ko 1 se arr ka size tak chalate hue {
+        abse sum boletoh sum + arr ka i
+    }
+
+    sum dega
 }
 
-screen pe sum dikha
+mulArr function boletoh arr lega aur {
+    prod boletoh 1
+    ab i ko 1 se arr ka size tak chalate hue {
+        abse prod boletoh prod * arr ka i
+    }
+
+    prod dega
+}
+
+
+_size me input aata
+arr boletoh collection
+jab tak _size 0 se bada hai tab tak {
+    abse _size boletoh _size - 1
+
+    elem me input aata
+    arr me elem daal
+}
+
+
+sum boletoh addArr ko arr deke chala
+prod boletoh mulArr ko arr deke chala
+
+
+
+screen pe 'Sum: ' + sum dikha
+screen pe '\\n' dikha
+screen pe 'Prod: ' + prod dikha
 `
 
 

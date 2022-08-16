@@ -8,13 +8,13 @@
 
     height: 4rem;
     padding: 0 5rem;
+    display: none;
 
-    display: flex;
     align-items: center;
     justify-content: space-between;
 
     @media screen and (max-width: $md) {
-        display: none;
+        display: none !important;
     }
 
     #logo {
@@ -58,6 +58,8 @@
             }
         }
     }
+
+    
 }
 
 #bottom {
@@ -66,14 +68,15 @@
     left: 0;
     right: 0;
 
+    display: none;
+
     height: 3.5rem;
 
-    display: flex;
     justify-content: space-around;
     align-items: center;
 
     @media screen and (min-width: $md) {
-        display: none;
+        display: none !important;
     }
 
     a {
@@ -96,4 +99,8 @@
 #nav, #bottom {
     background-color: rgba($fg, 0.3);
     backdrop-filter: blur(20px);
+
+    &.show {
+        display: flex;
+    }
 }
