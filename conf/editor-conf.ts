@@ -96,7 +96,7 @@ const setup = (monaco: Monaco, editorId: string, run: Function) => {
         cursorSmoothCaretAnimation: true,
         cursorBlinking: 'expand',
         fontLigatures: true,
-        fontFamily: 'Fira Code',
+        // fontFamily: 'Fira Code',
         fontSize: 16,
         padding: { top: 10 },
         value: starterCode,

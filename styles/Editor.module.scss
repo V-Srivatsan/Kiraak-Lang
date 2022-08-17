@@ -109,6 +109,10 @@ $margin: 1.5rem;
         &, & > div, & > div > div {
             border-top-right-radius: 0;
         }
+        
+        div {
+            font-family: 'Fira Code' !important;
+        }
     }
 
     #input, #output {

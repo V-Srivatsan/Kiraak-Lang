@@ -26,30 +26,32 @@ const Editor = () => {
             req['input'] = input
         
         
+        if (req.code.length === 0) return;
+        
         btn?.classList.add(styles.running)
 
-        try {
-            fetch('https://kiraak.ml/?' + new URLSearchParams(req))
-                .then(data => data.json())
-                .then(res => {
-                    if (output != null) {
-                        if (res.stderr.length > 0) {
-                            output.classList.add(styles.error)
-                            output.innerText = res.stderr
-                        }
-                
-                        else {
-                            output.classList.remove(styles.error)
-                            output.innerText = res.stdout
-                        }
+        fetch('https://api.kiraak.ml/?' + new URLSearchParams(req))
+            .then(data => data.json())
+            .then(res => {
+                if (output != null) {
+                    if (res.stderr.length > 0) {
+                        output.classList.add(styles.error)
+                        output.innerText = res.stderr
                     }
-    
+            
+                    else {
+                        output.classList.remove(styles.error)
+                        output.innerText = res.stdout
+                    }
+                }
+
                 btn?.classList.remove(styles.running)
-                })
-        } catch (e) {
-            console.log(e)
-            alert('Oops! Something went wrong! Please try again later!')
-        }
+            })
+            .catch (e => {
+                console.log(e)
+                alert('Oops! Something went wrong! Please try again later!')
+                btn?.classList.remove(styles.running)
+            })
 
     })
 
