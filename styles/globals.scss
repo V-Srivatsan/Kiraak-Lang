@@ -1,9 +1,13 @@
 @import 'vars.scss';
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
 @font-face {
 	font-family: Adlery;
 	src: url('../public/adlery-pro.swash.ttf');
+}
+
+@font-face {
+	font-family: 'Fira Code';
+	src: url('../public/fira-code.ttf')
 }
 
 html,
