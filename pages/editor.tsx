@@ -55,9 +55,13 @@ const Editor = () => {
 
     })
 
+
+
     useEffect(() => {
         if (monaco) {
-            setup(monaco, styles.editor, runCode)
+            setup(monaco, styles.editor, runCode, () => {
+                document.querySelector(`.${styles.loader}`)?.removeAttribute('style');
+            })
         }
     }, [monaco])
 
@@ -85,7 +89,10 @@ const Editor = () => {
                 minSize={[0.4 * width, 0.3 * width]}
                 sizes={[60, 40]} id={styles.container}>
                 <div>
-                    <div className={styles.tab}>Code Editor</div>
+                    <div className={styles.tab}>
+                        Code Editor &nbsp;
+                        <Autorenew style={{ display: 'initial' }} className={styles.loader} />
+                    </div>
                     <div className={styles.tab} id={styles.run} onClick={() => {
                         const code = monaco?.editor.getModels()[0].getValue()
                         if (code === undefined)
@@ -94,7 +101,7 @@ const Editor = () => {
                             runCode(code)
                     }}>
                         <PlayArrow />
-                        <Autorenew />
+                        <Autorenew className={styles.loader} />
 
                         &nbsp; Run (F9)
                     </div>

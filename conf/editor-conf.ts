@@ -50,7 +50,7 @@ screen pe 'Prod: ' + prod dikha
 `
 
 
-const setup = (monaco: Monaco, editorId: string, run: Function) => {
+const setup = (monaco: Monaco, editorId: string, run: Function, init: Function) => {
     monaco.editor.defineTheme('Kiraak', KiraakTheme)
 
     monaco.languages.register({ id: 'Kiraak' });
@@ -87,6 +87,8 @@ const setup = (monaco: Monaco, editorId: string, run: Function) => {
         ]
     })
 
+    monaco.editor.onDidCreateEditor(() => init())
+
 
     const editor = monaco.editor.create(document.getElementById(editorId)!!, {
         language: 'Kiraak',
@@ -106,9 +108,7 @@ const setup = (monaco: Monaco, editorId: string, run: Function) => {
 
     editor.addCommand(
         monaco.KeyCode.F9,
-        () => {
-            run(editor.getValue())
-        }
+        () => run(editor.getValue())
     )
 }
 

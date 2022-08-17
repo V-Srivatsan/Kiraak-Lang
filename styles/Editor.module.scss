@@ -37,14 +37,16 @@ $margin: 1.5rem;
         }
     }
 
-
     .tab {
-        display: inline-block;
+        display: inline-flex;
         color: #eee;
         padding: 0.75rem 1.5rem;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         background: $fg;
+
+        justify-content: center;
+        align-items: center;
 
         &#run {
             display: flex;
@@ -53,21 +55,6 @@ $margin: 1.5rem;
             cursor: pointer;
             background: $green_dark;
             float: right;
-
-            svg:nth-child(2) {
-                display: none;
-                animation: rotate 1s ease-in-out infinite forwards;
-
-                @keyframes rotate {
-                    from {
-                        transform: rotateZ(0deg);
-                    }
-
-                    to {
-                        transform: rotateZ(360deg);
-                    }
-                }
-            }
 
             &:hover {
                 background: $green_light;
@@ -84,6 +71,21 @@ $margin: 1.5rem;
                 svg:nth-child(2) {
                     display: initial;
                 }
+            }
+        }
+    }
+
+    .loader {
+        display: none;
+        animation: rotate 1s ease-in-out infinite forwards;
+
+        @keyframes rotate {
+            from {
+                transform: rotateZ(0deg);
+            }
+
+            to {
+                transform: rotateZ(360deg);
             }
         }
     }
@@ -125,7 +127,7 @@ $margin: 1.5rem;
             font-family: 'Fira Code';
             margin: 0;
 
-            height: calc(100% - 10px - $margin - $margin - 1rem);
+            height: calc(100% - 5px - $margin - $margin - 1rem);
 
             &.error {
                 color: red
