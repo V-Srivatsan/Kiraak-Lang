@@ -55,7 +55,7 @@ const Nav = () => {
                 <Link href='/'>
                     <a className={ url == '/' ? styles.active : '' }><Home /> &nbsp; Home</a>
                 </Link>
-                <Link href='/docs'>
+                <Link href='https://docs.kiraak.ml/'>
                     <a className={ url == 'https://docs.kiraak.ml/' ? styles.active : '' } target='_blank' rel='noreferrer'><Topic /> &nbsp; Docs</a>
                 </Link>
             </nav>
