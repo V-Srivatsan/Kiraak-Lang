@@ -30,7 +30,7 @@ const Editor = () => {
         
         btn?.classList.add(styles.running)
 
-        fetch('https://api.kiraak.ml/?' + new URLSearchParams(req))
+        fetch('https://kiraak.pythonanywhere.com/?' + new URLSearchParams(req))
             .then(data => data.json())
             .then(res => {
                 if (output != null) {
