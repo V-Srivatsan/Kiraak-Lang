@@ -46,7 +46,7 @@ const Nav = () => {
                 <div>
                     <NavLink url={url} icon={<Home />} link='/' text='Home' />
                     <NavLink url={url} icon={<Code />} link='/editor' text='Playground' />
-                    <NavLink url={url} icon={<Topic />} link='https://docs.kiraak.ml/' text='Docs' />
+                    <NavLink url={url} icon={<Topic />} link='https://v-vishwanath.gitbook.io/kiraak/' text='Docs' />
                 </div>
 
             </nav>
