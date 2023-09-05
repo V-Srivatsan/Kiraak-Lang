@@ -17,7 +17,7 @@ const Home = () => {
 					<a><Code /> &nbsp; Playground</a>
 				</Link>
 
-				<a href='https://docs.kiraak.ml/' target="_blank" rel='noreferrer'>
+				<a href='https://v-vishwanath.gitbook.io/kiraak/' target="_blank" rel='noreferrer'>
 					<Topic /> &nbsp; Read the Docs
 				</a>
 			</div>
